@@ -522,5 +522,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Checkpoint" parent="." instance=ExtResource("6_on86v")]
-position = Vector2(240, 546)
+position = Vector2(216, 546)
 target_scene = ExtResource("6_qlyb4")

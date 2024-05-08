@@ -527,13 +527,13 @@ position = Vector2(2088, 360)
 position = Vector2(2184, 360)
 
 [node name="Cherry16" parent="SceneObjects/Collectables" instance=ExtResource("5_bsd8v")]
-position = Vector2(2376, 264)
+position = Vector2(2328, 264)
 
 [node name="Cherry17" parent="SceneObjects/Collectables" instance=ExtResource("5_bsd8v")]
-position = Vector2(2520, 264)
+position = Vector2(2472, 264)
 
 [node name="Cherry18" parent="SceneObjects/Collectables" instance=ExtResource("5_bsd8v")]
-position = Vector2(2664, 264)
+position = Vector2(2616, 264)
 
 [node name="Cherry" parent="SceneObjects/Collectables" instance=ExtResource("5_bsd8v")]
 position = Vector2(408, 168)
@@ -557,7 +557,7 @@ position = Vector2(456, 456)
 position = Vector2(216, 552)
 
 [node name="Checkpoint" parent="SceneObjects" instance=ExtResource("6_lclgc")]
-position = Vector2(510, 402)
+position = Vector2(2712, 258)
 target_scene = ExtResource("7_qiawl")
 
 [node name="UI" type="CanvasLayer" parent="."]
