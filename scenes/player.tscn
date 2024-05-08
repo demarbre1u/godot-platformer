@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://btl87gca3ux3t"]
+[gd_scene load_steps=37 format=3 uid="uid://btl87gca3ux3t"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_ggi80"]
 [ext_resource type="Texture2D" uid="uid://04ifik6gx68c" path="res://assets/sprites/Idle (32x32).png" id="2_5r7rt"]
 [ext_resource type="Texture2D" uid="uid://baruvqe07p5iy" path="res://assets/sprites/Jump (32x32).png" id="3_c6tgm"]
 [ext_resource type="Texture2D" uid="uid://dhp2cq6tb3qpf" path="res://assets/sprites/Run (32x32).png" id="4_p6ni5"]
+[ext_resource type="Texture2D" uid="uid://37xig5cp1wy6" path="res://assets/sprites/Wall Jump (32x32).png" id="5_0mmlg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1r0y"]
 atlas = ExtResource("2_5r7rt")
@@ -101,6 +102,26 @@ region = Rect2(320, 0, 32, 32)
 atlas = ExtResource("4_p6ni5")
 region = Rect2(352, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwcej"]
+atlas = ExtResource("5_0mmlg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hsl4"]
+atlas = ExtResource("5_0mmlg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3q0v"]
+atlas = ExtResource("5_0mmlg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1qun"]
+atlas = ExtResource("5_0mmlg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srian"]
+atlas = ExtResource("5_0mmlg")
+region = Rect2(128, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_iigns"]
 animations = [{
 "frames": [{
@@ -189,10 +210,31 @@ animations = [{
 "loop": true,
 "name": &"running",
 "speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwcej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hsl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3q0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1qun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srian")
+}],
+"loop": true,
+"name": &"walljump",
+"speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxskp"]
-size = Vector2(46, 56)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pyhx8"]
+radius = 19.0
+height = 52.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ggi80")
@@ -201,9 +243,10 @@ script = ExtResource("1_ggi80")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_iigns")
+animation = &"walljump"
 autoplay = "default"
-frame_progress = 0.351084
+frame_progress = 0.202199
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 4)
-shape = SubResource("RectangleShape2D_gxskp")
+shape = SubResource("CapsuleShape2D_pyhx8")

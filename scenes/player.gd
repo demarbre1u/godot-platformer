@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -550.0
+const WALL_JUMP_VELOCITY = -450.0
+
 @onready var sprite_2d = $Sprite2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -20,17 +22,32 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 		sprite_2d.animation = "jumping"
 		
-	# Handle jump.
-	if Input.is_action_just_pressed("up") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
+	if is_on_wall_only():
+		if Input.is_action_pressed("left"):
+			sprite_2d.animation = "walljump"
+			sprite_2d.set_flip_h(true)			
+		if Input.is_action_pressed("right"):
+			sprite_2d.animation = "walljump"
+			sprite_2d.set_flip_h(false)
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("left", "right")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = move_toward(velocity.x, direction * SPEED, SPEED / 5)
 		sprite_2d.set_flip_h(direction < 0)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED / 5)
 
 	move_and_slide()
+
+	# Handle jump.
+	if Input.is_action_just_pressed("up"): 
+		if is_on_floor():
+			velocity.y = JUMP_VELOCITY
+		if is_on_wall_only():
+			velocity.y = JUMP_VELOCITY
+			if Input.is_action_pressed("left"):
+				velocity.x = -WALL_JUMP_VELOCITY
+			if Input.is_action_pressed("right"):
+				velocity.x = WALL_JUMP_VELOCITY
