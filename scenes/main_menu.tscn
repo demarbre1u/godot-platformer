@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dqnqyocrdyv4n"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_ik6td"]
-[ext_resource type="Texture2D" uid="uid://b3uoa0ocmnil7" path="res://Gray.png" id="1_s1c2j"]
+[ext_resource type="Texture2D" uid="uid://b3uoa0ocmnil7" path="res://assets/backgrounds/Gray.png" id="2_5cxlv"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_ik6td")
@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_s1c2j")
+texture = ExtResource("2_5cxlv")
 stretch_mode = 1
 
 [node name="UI" type="Node" parent="."]
