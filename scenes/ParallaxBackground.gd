@@ -12,3 +12,4 @@ func _ready():
 func _process(delta):
 	scroll_offset.x -= delta * parallaxSpeedX
 	scroll_offset.y -= delta * parallaxSpeedY
+	
