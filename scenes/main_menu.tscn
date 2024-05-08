@@ -1,20 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqnqyocrdyv4n"]
+[gd_scene load_steps=4 format=3 uid="uid://dqnqyocrdyv4n"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_ik6td"]
 [ext_resource type="Texture2D" uid="uid://b3uoa0ocmnil7" path="res://assets/backgrounds/Gray.png" id="2_akjrr"]
+[ext_resource type="Script" path="res://scenes/ParallaxBackground.gd" id="4_ulv6o"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_ik6td")
-
-[node name="Background" type="TextureRect" parent="."]
-texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_akjrr")
-stretch_mode = 1
 
 [node name="UI" type="Node" parent="."]
 
@@ -65,6 +56,26 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 text = "Level 2"
+
+[node name="Parallax" type="Node" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Parallax"]
+script = ExtResource("4_ulv6o")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax/ParallaxBackground"]
+motion_mirroring = Vector2(1152, 640)
+
+[node name="TextureRect" type="TextureRect" parent="Parallax/ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_akjrr")
+stretch_mode = 1
 
 [connection signal="pressed" from="UI/Level1Button" to="." method="_on_level_1_button_pressed"]
 [connection signal="pressed" from="UI/Level2Button" to="." method="_on_level_2_button_pressed"]
