@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://duk7x2bl4h0ih"]
+[gd_scene load_steps=20 format=3 uid="uid://duk7x2bl4h0ih"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_geufm"]
 [ext_resource type="Texture2D" uid="uid://du52lhxun4xgt" path="res://assets/backgrounds/Green.png" id="2_icsqh"]
@@ -10,7 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://glnamk20l5an" path="res://scenes/pitfall.tscn" id="8_esvq7"]
 [ext_resource type="Texture2D" uid="uid://boeetgbel2388" path="res://assets/sprites/menu/Restart.png" id="9_23me1"]
 [ext_resource type="Script" path="res://scenes/RestartButton.gd" id="10_wkncf"]
+[ext_resource type="Script" path="res://scenes/SettingsButton.gd" id="11_irilo"]
 [ext_resource type="Texture2D" uid="uid://l3cffsqdv63o" path="res://assets/sprites/menu/Settings.png" id="11_jnqt5"]
+[ext_resource type="Script" path="res://scenes/PausePanel.gd" id="12_d0arr"]
+[ext_resource type="Theme" uid="uid://ctxawvbnonglb" path="res://assets/themes/light_theme.tres" id="12_db0bs"]
+[ext_resource type="Script" path="res://scenes/UnpauseButton.gd" id="15_yakgj"]
+[ext_resource type="Script" path="res://scenes/TitleButton.gd" id="16_3xou2"]
+[ext_resource type="PackedScene" uid="uid://dqnqyocrdyv4n" path="res://scenes/main_menu.tscn" id="17_ug5r2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ahufu"]
 texture = ExtResource("3_e3v2r")
@@ -624,6 +630,7 @@ stretch_mode = 0
 [node name="SettingsButton" type="Control" parent="UI/ActionsPanel"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+script = ExtResource("11_irilo")
 
 [node name="TextureButton" type="TextureButton" parent="UI/ActionsPanel/SettingsButton"]
 texture_filter = 1
@@ -636,4 +643,86 @@ grow_vertical = 2
 texture_normal = ExtResource("11_jnqt5")
 stretch_mode = 0
 
+[node name="PausePanel" type="Panel" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -72.0
+offset_right = 150.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_d0arr")
+
+[node name="Panel" type="Panel" parent="UI/PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -108.0
+offset_right = 96.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="UI/PausePanel/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 27
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UnpauseButton" type="Button" parent="UI/PausePanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -45.0
+offset_right = 126.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_db0bs")
+theme_type_variation = &"light"
+text = "Return"
+script = ExtResource("15_yakgj")
+
+[node name="TitleButton" type="Button" parent="UI/PausePanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = 12.0
+offset_right = 126.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_db0bs")
+theme_type_variation = &"light"
+text = "Back to title
+"
+script = ExtResource("16_3xou2")
+title_scene = ExtResource("17_ug5r2")
+
 [connection signal="pressed" from="UI/ActionsPanel/RestartButton/TextureButton" to="UI/ActionsPanel/RestartButton" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="UI/ActionsPanel/SettingsButton/TextureButton" to="UI/ActionsPanel/SettingsButton" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="UI/PausePanel/UnpauseButton" to="UI/PausePanel/UnpauseButton" method="_on_pressed"]
+[connection signal="pressed" from="UI/PausePanel/TitleButton" to="UI/PausePanel/TitleButton" method="_on_pressed"]

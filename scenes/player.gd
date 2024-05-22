@@ -16,6 +16,9 @@ func _ready():
 	sprite_2d.flip_h = true
 
 func _physics_process(delta):
+	if game_manager.is_paused:
+		return
+	
 	if not canMove: 
 		return
 	
