@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://37xig5cp1wy6"
-path="res://.godot/imported/Wall Jump (32x32).png-c3a9aa5a91de6f27cd9d2f96ea34ec7c.ctex"
+uid="uid://u2vvkte0q4s0"
+path="res://.godot/imported/Kiwi.png-577d4e731e21693e43246f902061d8b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Wall Jump (32x32).png"
-dest_files=["res://.godot/imported/Wall Jump (32x32).png-c3a9aa5a91de6f27cd9d2f96ea34ec7c.ctex"]
+source_file="res://assets/sprites/collectables/Kiwi.png"
+dest_files=["res://.godot/imported/Kiwi.png-577d4e731e21693e43246f902061d8b0.ctex"]
 
 [params]
 

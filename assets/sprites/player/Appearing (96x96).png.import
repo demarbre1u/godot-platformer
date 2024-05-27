@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhp2cq6tb3qpf"
-path="res://.godot/imported/Run (32x32).png-c165ae895897783c14bd86def7901a3f.ctex"
+uid="uid://02613py8k86j"
+path="res://.godot/imported/Appearing (96x96).png-eaa3a57cfa7af826e6bdb19e5714c90a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Run (32x32).png"
-dest_files=["res://.godot/imported/Run (32x32).png-c165ae895897783c14bd86def7901a3f.ctex"]
+source_file="res://assets/sprites/player/Appearing (96x96).png"
+dest_files=["res://.godot/imported/Appearing (96x96).png-eaa3a57cfa7af826e6bdb19e5714c90a.ctex"]
 
 [params]
 
