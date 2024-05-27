@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqnqyocrdyv4n"]
 
-[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_ik6td"]
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_852f4"]
 [ext_resource type="Texture2D" uid="uid://b3uoa0ocmnil7" path="res://assets/backgrounds/Gray.png" id="2_akjrr"]
-[ext_resource type="Script" path="res://scenes/ParallaxBackground.gd" id="4_ulv6o"]
+[ext_resource type="Script" path="res://scripts/ui/ParallaxBackground.gd" id="2_nqeks"]
 
 [node name="MainMenu" type="Node"]
-script = ExtResource("1_ik6td")
+script = ExtResource("1_852f4")
 
 [node name="UI" type="Node" parent="."]
 
@@ -60,7 +60,7 @@ text = "Level 2"
 [node name="Parallax" type="Node" parent="."]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Parallax"]
-script = ExtResource("4_ulv6o")
+script = ExtResource("2_nqeks")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax/ParallaxBackground"]
 motion_mirroring = Vector2(1152, 640)
