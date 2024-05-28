@@ -466,7 +466,7 @@ texture = ExtResource("3_eb6mr")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ahufu")
 
-[node name="Root" type="Node"]
+[node name="Root2" type="Node"]
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -501,6 +501,8 @@ position_smoothing_speed = 7.0
 
 [node name="Collectables" type="Node" parent="SceneObjects"]
 
+[node name="Traps" type="Node" parent="SceneObjects"]
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="UI"]
@@ -522,5 +524,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Checkpoint" parent="." instance=ExtResource("6_on86v")]
-position = Vector2(216, 546)
+position = Vector2(456, 546)
 target_scene = ExtResource("6_qlyb4")
